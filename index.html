@@ -575,6 +575,66 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   .writing-grid { grid-template-columns: 1fr; }
 }
 
+/* ========== SIDE PROJECTS ========== */
+.projects-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+}
+.project-card {
+  border-radius: 20px;
+  border: 1px solid var(--border-dark);
+  background: var(--bg-dark-mid);
+  padding: 36px;
+  display: flex; flex-direction: column; gap: 20px;
+  transition: all 0.4s var(--ease-out-expo);
+  opacity: 0; transform: translateY(40px);
+  will-change: transform, opacity;
+}
+.project-card:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: 0 20px 56px rgba(0,0,0,0.35);
+  border-color: rgba(196,68,26,0.25);
+}
+.project-icon {
+  width: 52px; height: 52px; border-radius: 14px;
+  background: rgba(196,68,26,0.10);
+  border: 1px solid rgba(196,68,26,0.18);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--accent); flex-shrink: 0;
+}
+.project-icon svg { width: 24px; height: 24px; }
+.project-name {
+  font-family: var(--font-serif);
+  font-size: 1.5rem; color: var(--text-light);
+  margin-bottom: 8px;
+}
+.project-desc {
+  font-size: 0.9rem; line-height: 1.7;
+  color: var(--text-muted-light);
+}
+.project-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.project-tag {
+  font-size: 0.68rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.35);
+  padding: 4px 12px; border-radius: 20px;
+  border: 1px solid var(--border-dark);
+}
+.project-link {
+  margin-top: auto;
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 0.84rem; font-weight: 600;
+  color: var(--accent-light);
+  transition: gap 0.3s var(--ease-out-expo);
+}
+.project-link:hover { gap: 14px; }
+.project-link svg { width: 14px; height: 14px; }
+
+@media (max-width: 640px) {
+  .projects-grid { grid-template-columns: 1fr; }
+  .project-card { padding: 24px; }
+}
+
 /* ========== EDUCATION + LANGUAGES ========== */
 .edu-section { border-top: 1px solid var(--border-dark); }
 .edu-wrapper {
@@ -773,6 +833,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
     <li><a href="#experience">Experience</a></li>
     <li><a href="#skills">Skills</a></li>
     <li><a href="#writing">Writing</a></li>
+    <li><a href="#projects">Projects</a></li>
     <li><a href="#education">Education</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -786,6 +847,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   <a href="#experience" onclick="closeMobileNav()">Experience</a>
   <a href="#skills" onclick="closeMobileNav()">Skills</a>
   <a href="#writing" onclick="closeMobileNav()">Writing</a>
+  <a href="#projects" onclick="closeMobileNav()">Projects</a>
   <a href="#education" onclick="closeMobileNav()">Education</a>
   <a href="#contact" onclick="closeMobileNav()">Contact</a>
 </div>
@@ -796,6 +858,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   <button class="side-dot" data-section="experience" aria-label="Experience section"></button>
   <button class="side-dot" data-section="skills" aria-label="Skills section"></button>
   <button class="side-dot" data-section="writing" aria-label="Writing section"></button>
+  <button class="side-dot" data-section="projects" aria-label="Projects section"></button>
   <button class="side-dot" data-section="education" aria-label="Education section"></button>
   <button class="side-dot" data-section="contact" aria-label="Contact section"></button>
 </div>
@@ -1067,6 +1130,58 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
           <h4 class="writing-card-title">Rethinking MVPs</h4>
         </div>
       </a>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SIDE PROJECTS ==================== -->
+<section class="section section-dark" id="projects" style="border-top: 1px solid rgba(255,255,255,0.05);">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">Side Projects</div>
+      <h2 class="section-title">Building things<br>on weekends.</h2>
+      <p class="section-subtitle">Small tools built to scratch a personal itch. Shipped fast with v0 and Vercel.</p>
+    </div>
+    <div class="projects-grid">
+
+      <!-- Mi Biblioteca -->
+      <a href="https://v0-books-agent.vercel.app" target="_blank" rel="noopener" class="project-card">
+        <div class="project-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        </div>
+        <div>
+          <div class="project-name">Mi Biblioteca</div>
+          <p class="project-desc">Personal reading tracker with AI recommendations. Track books, get recommendations, view reading stats.</p>
+        </div>
+        <div class="project-tags">
+          <span class="project-tag">v0</span>
+          <span class="project-tag">Vercel</span>
+          <span class="project-tag">AI</span>
+        </div>
+        <span class="project-link">
+          Try it &rarr;
+        </span>
+      </a>
+
+      <!-- Game Box -->
+      <a href="https://v0-web-version-of-2048.vercel.app" target="_blank" rel="noopener" class="project-card">
+        <div class="project-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="15" rx="2"/><polyline points="16 2 12 6 8 2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+        </div>
+        <div>
+          <div class="project-name">Game Box</div>
+          <p class="project-desc">Collection of 4 logic and strategy games. 2048, Sudoku, Flags, Memory Match &mdash; all in one.</p>
+        </div>
+        <div class="project-tags">
+          <span class="project-tag">v0</span>
+          <span class="project-tag">Vercel</span>
+          <span class="project-tag">Interactive</span>
+        </div>
+        <span class="project-link">
+          Try it &rarr;
+        </span>
+      </a>
+
     </div>
   </div>
 </section>
@@ -1378,6 +1493,18 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 
   /* Experience cards */
   gsap.utils.toArray('.exp-card').forEach(function(card, i) {
+    gsap.to(card, {
+      scrollTrigger: {
+        trigger: card,
+        start: 'top 88%',
+        toggleActions: 'play none none none'
+      },
+      opacity: 1, y: 0, duration: 0.7, delay: i * 0.12, ease: 'power2.out'
+    });
+  });
+
+  /* Project cards */
+  gsap.utils.toArray('.project-card').forEach(function(card, i) {
     gsap.to(card, {
       scrollTrigger: {
         trigger: card,

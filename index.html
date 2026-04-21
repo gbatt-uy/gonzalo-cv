@@ -391,6 +391,11 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   padding: 3px 12px; border-radius: 20px;
   text-transform: uppercase; letter-spacing: 0.06em;
 }
+.exp-role-badge.muted {
+  background: transparent;
+  color: var(--text-muted);
+  border: 1px solid var(--border-light);
+}
 .exp-metrics {
   display: flex; gap: 28px; flex-wrap: wrap;
   margin-bottom: 24px;
@@ -801,7 +806,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   <div class="hero-orb-2"></div>
   <div class="hero-content">
     <h1 class="hero-name" id="heroName">Gonzalo Battro</h1>
-    <p class="hero-tagline">I turn business needs into technical solutions.<br>Product and strategy, powered by technology.</p>
+    <p class="hero-tagline">Where business meets technology.</p>
     <div class="hero-rotating" id="heroRotating">
       <div class="hero-rotating-text">Product Management</div>
       <div class="hero-rotating-text">Business Strategy</div>
@@ -838,7 +843,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   <div class="container">
     <div class="section-header reveal">
       <div class="section-label">Experience</div>
-      <h2 class="section-title">Where business<br>meets technology.</h2>
+      <h2 class="section-title">Three companies.<br>One throughline.</h2>
       <p class="section-subtitle">Every role has been about the same thing: understanding what the business needs and using technology to make it happen.</p>
     </div>
 
@@ -867,7 +872,11 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
           </div>
           <div class="exp-metrics">
             <div class="exp-metric">
-              <div class="exp-metric-num" data-count="3" data-suffix="+">0</div>
+              <div class="exp-metric-num" data-count="5" data-suffix="+">0</div>
+              <div class="exp-metric-label">Partnerships</div>
+            </div>
+            <div class="exp-metric">
+              <div class="exp-metric-num" data-count="3">0</div>
               <div class="exp-metric-label">Acquisition<br>Channels</div>
             </div>
             <div class="exp-metric">
@@ -892,8 +901,12 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
           <div class="exp-role">Product Manager</div>
           <div class="exp-metrics">
             <div class="exp-metric">
-              <div class="exp-metric-num" data-count="5">0</div>
-              <div class="exp-metric-label">Markets<br>Launched</div>
+              <div class="exp-metric-num" data-count="50" data-suffix="+">0</div>
+              <div class="exp-metric-label">Promos<br>Launched</div>
+            </div>
+            <div class="exp-metric">
+              <div class="exp-metric-num" data-count="10" data-suffix="+">0</div>
+              <div class="exp-metric-label">Countries</div>
             </div>
             <div class="exp-metric">
               <div class="exp-metric-num" data-count="1">0</div>
@@ -935,11 +948,14 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
           <div class="exp-gradient-header exp-gradient-samyroad">SamyRoad</div>
         </div>
         <div class="exp-right">
-          <div class="exp-role">Assistant Management</div>
+          <div class="exp-role">
+            Management Assistant
+            <span class="exp-role-badge muted">Internship</span>
+          </div>
           <div class="exp-metrics">
             <div class="exp-metric">
-              <div class="exp-metric-num" data-count="3">0</div>
-              <div class="exp-metric-label">LATAM<br>Markets</div>
+              <div class="exp-metric-num" data-count="3" data-suffix="+">0</div>
+              <div class="exp-metric-label">LATAM Markets<br>Helped Expand</div>
             </div>
           </div>
           <p class="exp-narrative">Early career role at an influencer marketing platform that used algorithmic matching to connect brands with the right creators for their campaigns. Part of the team that helped expand operations from Spain into LATAM, supporting business development across Argentina, Brazil, and Colombia. Built influencer databases, ran outreach campaigns, and learned the fundamentals of market expansion.</p>

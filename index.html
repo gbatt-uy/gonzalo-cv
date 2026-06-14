@@ -396,23 +396,25 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   color: var(--text-muted);
   border: 1px solid var(--border-light);
 }
-.exp-metrics {
-  display: flex; gap: 28px; flex-wrap: wrap;
+.exp-chips {
+  display: flex; gap: 10px; flex-wrap: wrap;
   margin-bottom: 24px;
   padding-bottom: 24px;
   border-bottom: 1px solid var(--border-light);
 }
-.exp-metric {
-  text-align: center; min-width: 72px;
+.exp-chip {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 7px 14px 7px 12px;
+  background: rgba(196, 68, 26, 0.06);
+  border: 1px solid rgba(196, 68, 26, 0.16);
+  border-radius: 999px;
+  font-size: 0.8rem; font-weight: 600; line-height: 1.2;
+  color: var(--accent); white-space: nowrap;
 }
-.exp-metric-num {
-  font-size: 2rem; font-weight: 800; color: var(--accent);
-  line-height: 1; font-variant-numeric: tabular-nums;
-}
-.exp-metric-label {
-  font-size: 0.68rem; color: var(--text-muted);
-  text-transform: uppercase; letter-spacing: 0.05em;
-  margin-top: 6px; line-height: 1.3;
+.exp-chip::before {
+  content: ''; flex: none;
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--accent);
 }
 .exp-narrative {
   font-size: 0.95rem; line-height: 1.8; color: #444;
@@ -444,8 +446,8 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 }
 @media (max-width: 480px) {
   .exp-card { padding: 20px; }
-  .exp-metrics { gap: 16px; }
-  .exp-metric-num { font-size: 1.5rem; }
+  .exp-chips { gap: 8px; }
+  .exp-chip { font-size: 0.74rem; padding: 6px 12px 6px 10px; }
 }
 
 /* ========== SKILLS ========== */
@@ -933,19 +935,10 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
             Growth Lead
             <span class="exp-role-badge">Current</span>
           </div>
-          <div class="exp-metrics">
-            <div class="exp-metric">
-              <div class="exp-metric-num" data-count="5" data-suffix="+">0</div>
-              <div class="exp-metric-label">Partnerships</div>
-            </div>
-            <div class="exp-metric">
-              <div class="exp-metric-num" data-count="3">0</div>
-              <div class="exp-metric-label">Acquisition<br>Channels</div>
-            </div>
-            <div class="exp-metric">
-              <div class="exp-metric-num" data-count="4">0</div>
-              <div class="exp-metric-label">Articles<br>Published</div>
-            </div>
+          <div class="exp-chips">
+            <span class="exp-chip">Repeatable outreach systems</span>
+            <span class="exp-chip">New acquisition channels</span>
+            <span class="exp-chip">AI &amp; product content</span>
           </div>
           <p class="exp-narrative">Supporting the commercial team at a technical agency to make growth consistent instead of improvised. Helping define acquisition channels, structure outreach processes, and build systems that allow the team to scale sustainably. Also contributing to REBL's positioning through published content on AI, product strategy, and technology.</p>
         </div>
@@ -962,19 +955,10 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
         </div>
         <div class="exp-right">
           <div class="exp-role">Product Manager</div>
-          <div class="exp-metrics">
-            <div class="exp-metric">
-              <div class="exp-metric-num" data-count="50" data-suffix="+">0</div>
-              <div class="exp-metric-label">Promos<br>Launched</div>
-            </div>
-            <div class="exp-metric">
-              <div class="exp-metric-num" data-count="10" data-suffix="+">0</div>
-              <div class="exp-metric-label">Countries</div>
-            </div>
-            <div class="exp-metric">
-              <div class="exp-metric-num" data-count="1">0</div>
-              <div class="exp-metric-label">Product<br>Built 0&rarr;1</div>
-            </div>
+          <div class="exp-chips">
+            <span class="exp-chip">0&rarr;1 product shipped</span>
+            <span class="exp-chip">Promos across 5 markets</span>
+            <span class="exp-chip">In-app stories platform</span>
           </div>
           <p class="exp-narrative">Grew through three roles at a global digital wallet operating in 50+ countries. Started as a Research Analyst, moved to Product Analyst where I launched debit card promotions across 5 countries (Brazil, Norway, Spain, UK, Peru) and shipped an in-app stories platform. Then became IC Product Manager, building a sports product from zero to one with a cross-functional team of engineers, designers, and analysts.</p>
           <button class="exp-expand-btn" onclick="toggleExpand(this)">
@@ -1015,11 +999,10 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
             Management Assistant
             <span class="exp-role-badge muted">Internship</span>
           </div>
-          <div class="exp-metrics">
-            <div class="exp-metric">
-              <div class="exp-metric-num" data-count="3" data-suffix="+">0</div>
-              <div class="exp-metric-label">LATAM Markets<br>Helped Expand</div>
-            </div>
+          <div class="exp-chips">
+            <span class="exp-chip">Spain &rarr; LATAM expansion</span>
+            <span class="exp-chip">Influencer databases built</span>
+            <span class="exp-chip">BD across 3 markets</span>
           </div>
           <p class="exp-narrative">Early career role at an influencer marketing platform that used algorithmic matching to connect brands with the right creators for their campaigns. Part of the team that helped expand operations from Spain into LATAM, supporting business development across Argentina, Brazil, and Colombia. Built influencer databases, ran outreach campaigns, and learned the fundamentals of market expansion.</p>
         </div>
@@ -1524,28 +1507,6 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
         toggleActions: 'play none none none'
       },
       opacity: 1, x: 0, duration: 0.5, delay: i * 0.08, ease: 'power2.out'
-    });
-  });
-
-  /* ========== COUNTER ANIMATION ========== */
-  document.querySelectorAll('.exp-metric-num').forEach(function(el) {
-    var target = parseInt(el.dataset.count, 10);
-    var suffix = el.dataset.suffix || '';
-
-    ScrollTrigger.create({
-      trigger: el,
-      start: 'top 92%',
-      once: true,
-      onEnter: function() {
-        gsap.to({ val: 0 }, {
-          val: target,
-          duration: 1.2,
-          ease: 'power2.out',
-          onUpdate: function() {
-            el.textContent = Math.round(this.targets()[0].val) + suffix;
-          }
-        });
-      }
     });
   });
 
